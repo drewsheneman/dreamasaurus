@@ -24,5 +24,17 @@ module Dreamasaurus
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+
+    config.generators do |g|
+        g.test_framework :rspec,
+        :fixtures => false, # generate a factory for each model
+        :view_specs => false, # do not generate view specs
+        :helper_specs => false, # do not generate specs for the helper files
+        :routing_specs => false, # do not generate a spec for routes
+        :controller_specs => true, # generate controller specs
+        :request_specs => true # generate request specs
+    end
   end
 end

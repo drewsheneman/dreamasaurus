@@ -1,0 +1,11 @@
+<li>
+  <span class="content"><%= dream.content %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(dream.created_at) %> ago.
+  </span>
+  <% if current_user?(dream.user) %>
+    <%= link_to "delete", dream, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: dream.content %>
+  <% end %>
+</li>
